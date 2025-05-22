@@ -1,5 +1,6 @@
 @startuml ClasesDelDominio
 
+hide empty members
 skinparam classAttributeIconSize 0
 skinparam classOperationIconSize 0
 

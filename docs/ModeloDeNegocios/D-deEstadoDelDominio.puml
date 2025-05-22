@@ -1,5 +1,6 @@
 @startuml EstadoDelDominio
 
+hide empty description
 skinparam classAttributeIconSize 0
 skinparam classOperationIconSize 0
 
