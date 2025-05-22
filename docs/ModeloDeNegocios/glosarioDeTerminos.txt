@@ -1,0 +1,53 @@
+1. Comedor Universitario
+Definición: Entidad que representa el comedor físico de la universidad, encargado de gestionar su operación diaria y adscrito a la secretaria de la universidad
+
+2. Menú
+Definición: Conjunto de platos disponibles para un día y turno específico.
+
+3. Plato
+Definición: Preparación culinaria individual ofrecida en el comedor por turno
+
+4. Horario
+Definición: Días y períodos en los que el comedor está operativo.
+Ejemplo: "Lunes a viernes, de 7:00 a 19:00".
+
+5. Turno
+Definición: Bloque de tiempo específico dentro de un día para el servicio de comidas.
+Ejemplo: "Turno de almuerzo: 11:00 a 14:00".
+
+6. Control de Acceso
+Definición: Mecanismo por el cual se controla y gestiona el acceso al espacio fisico del comedor (actualmente es un acola por orden de llegada con entrega de numeros)
+
+7. Comensal 
+Definición: Persona autorizada para consumir alimentos en el comedor.
+Subclases:
+
+    Estudiante: Comensal con matrícula universitaria activa
+
+    Profesor: Comensal adscrito a un departamento académico
+
+    Administrativo: Personal encargado de tareas administrativas
+
+    Obrero: Personal encargado de labores operativas (Ej.: "Técnico de mantenimiento").
+
+8. Personal (clase abstracta)
+Definición: Empleado de la universidad vinculado al comedor.
+Subclases:
+
+    Director del Comedor: Responsable máximo de la gestión y administración del comedor.
+
+    Personal de Cocina: Empleado encargado de la preparación de alimentos.
+
+    Personal de Limpieza: Empleado responsable de la higiene y mantenimiento de las instalaciones.
+
+    Personal de Control: Empleado encargado de supervisar el acceso y cumplimiento de normas.
+
+9. Inventario
+Definición: Registro de recursos disponibles en el comedor (insumos y materiales).
+
+10. Insumo
+Definición: Materia prima utilizada para la preparación de platos.
+
+11. Materiales
+Definición: Recursos no alimenticios necesarios para la operación del comedor.
+

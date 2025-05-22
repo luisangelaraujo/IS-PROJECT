@@ -1,0 +1,49 @@
+@startuml ClasesDelDominio
+
+skinparam classAttributeIconSize 0
+skinparam classOperationIconSize 0
+
+' clases
+class ComedorUniversitario {}
+class Menu {}
+class Plato {}
+class Horario {}
+class Turno {}
+class ControlAcceso {}
+abstract class Comensal {}
+class Estudiante {}
+class Profesor {}
+class Administrativo {}
+class Obrero {}
+abstract class Personal {}
+class Inventario {}
+class Insumo {}
+class Materiales{}
+class DirectorComedor{}
+class personalCocina{}
+class personalLimpieza{}
+class personalControl{}
+
+' Relaciones
+ComedorUniversitario "1" *-- "1" ControlAcceso
+ComedorUniversitario "1" *-- "1..*" Horario
+ComedorUniversitario "1" *-- "1..*" Menu
+ComedorUniversitario "1" *-- "1" Inventario
+ComedorUniversitario "1" *-- "1" Personal
+Inventario "1" *-- "1..*" Insumo
+Inventario "1" *-- "1..*" Materiales
+Horario "1" *-- "1..*" Turno
+Turno "1" *-- "1..*" Menu
+Menu "1" *-- "1..*" Plato
+Plato "1..*" -- "1..*" Insumo
+ControlAcceso "1" -- "1..*" Comensal
+Comensal <|-- Estudiante
+Comensal <|-- Profesor
+Comensal <|-- Administrativo
+Comensal <|-- Obrero
+Personal <|-- DirectorComedor
+Personal <|-- personalCocina
+Personal <|-- personalLimpieza
+Personal <|-- personalControl
+
+@enduml
