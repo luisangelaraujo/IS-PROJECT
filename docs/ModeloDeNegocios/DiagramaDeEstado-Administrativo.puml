@@ -1,0 +1,20 @@
+@startuml EstadoDelDominio-Administrativo
+
+hide empty description
+skinparam classAttributeIconSize 0
+skinparam classOperationIconSize 0
+
+state "recibir insumos" as recibir
+state "registrar insumos" as registrar
+state "plenificar menus" as plenificar
+state "anunciar menus" as anunciar
+state "realizar reportes" as reportes
+
+[*] --> recibir
+recibir --> registrar
+registrar --> plenificar
+plenificar --> anunciar
+anunciar --> reportes
+reportes --> [*]
+
+@enduml

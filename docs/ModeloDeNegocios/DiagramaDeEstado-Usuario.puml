@@ -9,10 +9,8 @@ state "Llegar Al Comedor" as llegar
 state "Verificar Disponibilidad Del Sevicio" as verificar
 state "Formarse Para El Control De Acceso" as acceder
 state "Recibir Alimentos" as recibir
-state "Dirgirise La Espacio Destinado Para Comer" as comer
-state "Recoger Utensilios Y Sobras" as recoger
-state "Depossitar Sobras En La Basura" as botar
-state "Depositar Utensilios En El Area Designada" as depositar
+state "comer" as comer
+state "Recoger Utensilios" as recoger
 state "Retirarse Del Comedor" as retirarse
 
 ' Relaciones
@@ -24,9 +22,7 @@ acceder --> retirarse : No Autorizado
 acceder --> recibir
 recibir --> comer
 comer --> recoger
-recoger --> botar
-botar --> depositar
-depositar --> retirarse
+recoger --> retirarse
 retirarse --> [*]
 
 @enduml

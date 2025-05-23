@@ -30,7 +30,8 @@ ComedorUniversitario "1" *-- "1" ControlAcceso
 ComedorUniversitario "1" *-- "1..*" Horario
 ComedorUniversitario "1" *-- "1..*" Menu
 ComedorUniversitario "1" *-- "1" Inventario
-ComedorUniversitario "1" *-- "1" Personal
+ComedorUniversitario "1" *-- "1..*" Personal
+Comensal "1" -- "1" Menu
 Inventario "1" *-- "1..*" Insumo
 Inventario "1" *-- "1..*" Materiales
 Horario "1" *-- "1..*" Turno
