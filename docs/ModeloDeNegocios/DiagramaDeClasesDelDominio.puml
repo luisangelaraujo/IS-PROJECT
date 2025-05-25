@@ -1,0 +1,85 @@
+@startuml DiagramaDeClasesDelDominio
+
+title Clases del Dominio
+hide empty members
+skinparam groupinheritance 4
+
+
+' clases
+class ComedorUniversitario {
+    Capacidad
+}
+class Menu {
+    Cantidad-Disponible
+}
+class Plato {
+    Nombre
+}
+class Horario {
+    Dia
+    Inicio
+    Fin 
+}
+class Turno {
+    Inicio
+    Fin 
+}
+class ControlAcceso {
+    Registro
+}
+abstract class Comensal {
+    Nombre
+    Apellido
+    ID
+}
+class Estudiante {}
+class Profesor {}
+class Administrativo {}
+class Obrero {}
+abstract class Personal {
+     Nombre
+    Apellido
+    ID
+}
+class Inventario {
+    Total
+}
+class Insumo {
+    Nombre
+    Cantidad
+    Tipo 
+}
+class Materiales{
+    Nombre
+    Cantidad
+    Tipo 
+}
+class PersonalDirectivo{}
+class PersonalCocina{}
+class PersonalLimpieza{}
+class PersonalControl{}
+
+' Relaciones
+ComedorUniversitario "1" *-- "1" ControlAcceso
+ComedorUniversitario "1" *-- "1..*" Horario
+ComedorUniversitario "1" *-- "1..*" Menu
+ComedorUniversitario "1" *-- "1" Inventario
+ComedorUniversitario "1" *-- "1..*" Personal
+Comensal "1" -- "1" Menu
+Inventario "1" *-- "1..*" Insumo
+Inventario "1" *-- "1..*" Materiales
+Horario "1" *-- "1..*" Turno
+Turno "1" *-- "1..*" Menu
+Menu "1" *-- "1..*" Plato
+Plato "1..*" -left-- "1..*" Insumo
+ControlAcceso "1" -- "1..*" Comensal
+Comensal <|-- Estudiante
+Comensal <|-- Profesor
+Comensal <|-- Administrativo
+Comensal <|-- Obrero
+Personal <|-- PersonalDirectivo
+Personal <|-- PersonalCocina
+Personal <|-- PersonalLimpieza
+Personal <|-- PersonalControl
+
+@enduml

@@ -1,0 +1,27 @@
+@startuml DiagramaDeEstado-PersonalDirectivo
+
+title Estado del Dominio Personal Directivo
+hide empty description
+skinparam classAttributeIconSize 0
+skinparam classOperationIconSize 0
+
+state "Recibiendo Insumos" as recibir
+state "Registrando Insumos" as registrar
+state "Planificando Menus" as planificar
+state "Anunciando Menus" as anunciar
+state "Registrando Consumo" as consumo
+state "Realizando Reportes" as reportes
+
+[*] --> recibir : Recibir insumos
+recibir --> registrar : Registrar insumos
+registrar --> planificar : Verificar insumos 
+planificar --> planificar : Hacer menu del dia 
+planificar --> anunciar : Anunciar menus
+anunciar --> consumo : Registrar consumo
+consumo --> consumo : Analizar consumo
+consumo --> reportes : Analizar alfuencia
+reportes --> reportes : Analizar demanda
+reportes --> reportes : Analizar recursos
+reportes --> [*]
+
+@enduml

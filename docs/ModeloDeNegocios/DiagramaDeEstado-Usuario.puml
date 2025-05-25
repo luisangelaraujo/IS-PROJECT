@@ -1,28 +1,37 @@
-@startuml EstadoDelDominio
+@startuml DiagramaDeEstado-Usuario
 
+title Estado del Dominio Usuarios (Comensal)
 hide empty description
 skinparam classAttributeIconSize 0
 skinparam classOperationIconSize 0
 
 ' estados
-state "Llegar Al Comedor" as llegar
-state "Verificar Disponibilidad Del Sevicio" as verificar
-state "Formarse Para El Control De Acceso" as acceder
-state "Recibir Alimentos" as recibir
-state "comer" as comer
-state "Recoger Utensilios" as recoger
-state "Retirarse Del Comedor" as retirarse
+state "Llegando Al Comedor" as llegando
+state "Verificando Disponibilidad Del Sevicio" as verificando
+state "Esperando Control de Acceso" as esperando
+state "Recibiendo Alimentos y Utensilios" as recibiendo
+state "Comiendo Alimentos" as comiendo
+state "Desechando Sobras" as desechando
+state "Devolviendo Utensilios" as Devolviendo
+state "Retirandose Del Comedor" as retirandose
+state choice_state1 <<choice>> 
+state choice_state2 <<choice>>
+state join_state <<join>>
 
 ' Relaciones
-[*] --> llegar
-llegar --> verificar
-verificar --> retirarse : No Disponible
-verificar --> acceder
-acceder --> retirarse : No Autorizado
-acceder --> recibir
-recibir --> comer
-comer --> recoger
-recoger --> retirarse
-retirarse --> [*]
+[*] --> llegando : Llegar al comedor
+llegando --> verificando : Formandose para control de acceso
+verificando --> choice_state1 : Servicio disponible ?
+choice_state1 --> join_state: No
+choice_state1 --> esperando : Si 
+esperando --> choice_state2 : Acceso Autorizado ?
+choice_state2 --> join_state : No
+choice_state2 --> recibiendo : Si 
+recibiendo --> comiendo : Dirigirse a comer
+comiendo --> desechando : Dirigirse a desechar sobras
+desechando --> Devolviendo : Dirigirse a devolver utensilios
+Devolviendo --> join_state
+join_state --> retirandose : Retirarse del comedor
+retirandose --> [*]
 
 @enduml
