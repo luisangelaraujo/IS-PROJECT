@@ -1,0 +1,45 @@
+@startuml DiagramaDeCasosDeUso
+
+title Casos De Uso Comedor Universitario
+skinparam actorStyle awesome
+left to right direction
+
+actor Comensal
+actor Administrador
+
+
+rectangle " "{
+
+    usecase (Inicio de Sesión) as inicio_comensal
+    usecase (Registro de usuario) as registro_usuario
+    usecase (Registro De Acceseso) as registro_acceso
+    usecase (Asignacion De Turno) as asignacion
+    usecase (Consultar Menus) as menus_consultar
+    usecase (Selecionar Menu) as menus_selecionar
+
+    usecase (Inicio de Sesión) as inicio_personal
+    usecase (Gestionar Insumos ) as insumos
+    usecase (Registrar Consumo) as consumo
+    usecase (Gestionar Menus) as gestion 
+    usecase (Generar Reportes) as reporte
+    usecase (Registro de Personal) as registro_personal
+
+}
+
+Comensal --> inicio_comensal
+Comensal --> asignacion
+Comensal --> menus_selecionar
+
+inicio_comensal ..> registro_usuario : include
+inicio_personal ..> registro_personal : include 
+menus_selecionar ..> menus_consultar : include
+asignacion ..>  registro_acceso : include
+
+Administrador  --> inicio_personal
+Administrador --> insumos
+Administrador --> consumo
+Administrador --> gestion
+Administrador --> reporte
+
+
+@enduml
