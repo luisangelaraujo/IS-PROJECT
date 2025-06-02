@@ -1,0 +1,26 @@
+@startuml DiagramaDeEstadoDelSistema
+
+title Diagrama De Estado Del Sistema  - Módulo Usuario
+hide empty description
+
+state "Registrando Usuario" as registrar
+state "Iniciando Sesión" as iniciarSesion
+state "Consultando Menus" as consultarMenus
+state "Seleccionando Menu" as seleccionarMenu
+state "Registrando Acceso" as registrarAcceso
+state "Asignando Turno" as asignarTurno
+
+state choice1 <<choice>>
+
+
+[*] --> choice1 : Tiene una cuenta ?
+choice1 --> registrar : No
+choice1 --> iniciarSesion : Si
+registrar --> iniciarSesion
+iniciarSesion --> consultarMenus : consultar menus disponibles
+consultarMenus --> seleccionarMenu : seleccionar menu
+seleccionarMenu --> registrarAcceso : registrar acceso al servicio
+registrarAcceso --> asignarTurno : asignar turno
+asignarTurno --> [*] : servicio completado
+
+@enduml

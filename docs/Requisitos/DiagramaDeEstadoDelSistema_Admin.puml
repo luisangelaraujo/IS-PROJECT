@@ -1,0 +1,34 @@
+@startuml DiagramaDeEstadoDelSistema
+
+title Diagrama De Estado Del Sistema - Módulo Administrador
+hide empty description
+
+state "Registrando Personal" as registrar
+state "Iniciando Sesión" as iniciarSesión
+state "Gestionando Menus" as gestionarMenus
+state "Generando Reportes" as generarReportes
+state "Gestionando Insumos" as gestionarInsumos
+
+state choice1 <<choice>>
+state "Permaneciendo en el Sistema" as permanecer
+
+
+[*] --> choice1 : ¿Tiene una cuenta?
+choice1 --> registrar : No
+choice1 --> iniciarSesión : Sí
+registrar --> iniciarSesión
+iniciarSesión --> permanecer : Accede al sistema
+
+permanecer -l-> gestionarMenus : Gestionar Menus
+gestionarMenus -r-> permanecer : Menus gestionados
+
+permanecer -r-> generarReportes : Generar Reportes
+generarReportes -l-> permanecer : Reportes generados
+
+permanecer --> gestionarInsumos : Gestionar Insumos
+gestionarInsumos --> permanecer : Insumos gestionados
+
+permanecer --> [*] : Cerrar Sesión
+
+
+@enduml
