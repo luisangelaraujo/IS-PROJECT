@@ -6,39 +6,43 @@ left to right direction
 
 actor Comensal
 actor Administrador
+actor :Usuario del Sistema: as user
 
 
 rectangle " "{
 
     usecase (Inicio de Sesión) as inicio
 
-    usecase (Registro de usuario) as registro_usuario
-    usecase (Registro De Acceseso) as registro_acceso
-    usecase (Asignacion De Turno) as asignacion
+    usecase (Registrar usuario) as registro_usuario
+    usecase (Registrar Acceseso) as registro_acceso
+    usecase (Asignar Turno) as asignacion
     usecase (Consultar Menus) as menus_consultar
     usecase (Selecionar Menu) as menus_selecionar
 
    
     usecase (Gestionar Insumos ) as insumos
-    usecase (Registrar Consumo) as consumo
     usecase (Gestionar Menus) as gestion 
     usecase (Generar Reportes) as reporte
-    usecase (Registro de Personal) as registro_personal
+    usecase (Registrar Personal) as registro_personal
 
 }
 
-Comensal --> inicio
-Comensal --> registro_usuario
+user <|-- Comensal
+user <|-- Administrador
+
+user --> inicio
+inicio ..> registro_usuario : Include
+inicio ..> registro_personal : Include
+
+
 Comensal --> asignacion
 Comensal --> menus_selecionar
 
 menus_selecionar ..> menus_consultar : Include
 asignacion ..>  registro_acceso : Include
 
-Administrador -r-> inicio
-Administrador  --> registro_personal
+
 Administrador --> insumos
-Administrador --> consumo
 Administrador --> gestion
 Administrador --> reporte
 
