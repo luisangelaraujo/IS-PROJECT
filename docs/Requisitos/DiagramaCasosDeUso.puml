@@ -13,7 +13,7 @@ rectangle " "{
 
     usecase (Inicio de Sesión) as inicio
 
-    usecase (Registrar usuario) as registro_usuario
+    usecase (Registrar Comensal) as registro_usuario
     usecase (Registrar Acceseso) as registro_acceso
     usecase (Asignar Turno) as asignacion
     usecase (Consultar Menus) as menus_consultar

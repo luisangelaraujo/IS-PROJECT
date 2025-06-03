@@ -1,4 +1,4 @@
-@startuml DiagramaDeEstadoDelSistema
+@startuml DiagramaDeEstadoDelSistema_Usuario
 
 title Diagrama De Estado Del Sistema  - Módulo Usuario
 hide empty description

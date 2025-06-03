@@ -1,4 +1,4 @@
-@startuml DiagramaDeEstadoDelSistema
+@startuml DiagramaDeEstadoDelSistema_Admin
 
 title Diagrama De Estado Del Sistema - Módulo Administrador
 hide empty description
